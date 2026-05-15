@@ -4,10 +4,10 @@ class Program
 {
     static void Main(string[] args)
     {
-        Journal journal = new Journal();
-        string choice = "";
+        Journal ney_journal = new Journal();
+        string ney_choice = "";
 
-        while (choice != "5")
+        while (ney_choice != "5")
         {
             // Display the menu
             Console.WriteLine("\n=== Journal Program ===");
@@ -17,21 +17,21 @@ class Program
             Console.WriteLine("4. Load the journal from a file");
             Console.WriteLine("5. Quit");
             Console.Write("What would you like to do? ");
-            choice = Console.ReadLine();
+            ney_choice = Console.ReadLine();
 
-            switch (choice)
+            switch (ney_choice)
             {
                 case "1":
-                    WriteNewEntry(journal);
+                    WriteNewEntry(ney_journal);
                     break;
                 case "2":
-                    DisplayJournal(journal);
+                    DisplayJournal(ney_journal);
                     break;
                 case "3":
-                    SaveJournal(journal);
+                    SaveJournal(ney_journal);
                     break;
                 case "4":
-                    LoadJournal(journal);
+                    LoadJournal(ney_journal);
                     break;
                 case "5":
                     Console.WriteLine("Goodbye!");
@@ -44,36 +44,36 @@ class Program
     }
 
     // Write a new entry to the journal
-    static void WriteNewEntry(Journal journal)
+    static void WriteNewEntry(Journal ney_journal)
     {
-        string prompt = journal.GetRandomPrompt();
-        Console.WriteLine($"\nPrompt: {prompt}");
+        string ney_prompt = ney_journal.GetRandomPrompt();
+        Console.WriteLine($"\nPrompt: {ney_prompt}");
         Console.Write("Your response: ");
-        string response = Console.ReadLine();
-        journal.AddEntry(prompt, response);
+        string ney_response = Console.ReadLine();
+        ney_journal.AddEntry(ney_prompt, ney_response);
         Console.WriteLine("Entry added successfully!");
     }
 
     // Display all entries in the journal
-    static void DisplayJournal(Journal journal)
+    static void DisplayJournal(Journal ney_journal)
     {
         Console.WriteLine("\n=== Journal Entries ===");
-        journal.DisplayAll();
+        ney_journal.DisplayAll();
     }
 
     // Save the journal to a file
-    static void SaveJournal(Journal journal)
+    static void SaveJournal(Journal ney_journal)
     {
         Console.Write("\nEnter the filename to save to: ");
-        string filename = Console.ReadLine();
-        journal.SaveToFile(filename);
+        string ney_filename = Console.ReadLine();
+        ney_journal.SaveToFile(ney_filename);
     }
 
     // Load the journal from a file
-    static void LoadJournal(Journal journal)
+    static void LoadJournal(Journal ney_journal)
     {
         Console.Write("\nEnter the filename to load from: ");
-        string filename = Console.ReadLine();
-        journal.LoadFromFile(filename);
+        string ney_filename = Console.ReadLine();
+        ney_journal.LoadFromFile(ney_filename);
     }
 }

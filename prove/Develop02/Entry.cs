@@ -31,12 +31,12 @@ public class Entry
     }
 
     // Create entry from file format
-    public static Entry FromFileFormat(string line)
+    public static Entry FromFileFormat(string ney_line)
     {
-        string[] parts = line.Split('|');
-        if (parts.Length == 3)
+        string[] ney_parts = ney_line.Split('|');
+        if (ney_parts.Length == 3)
         {
-            return new Entry(parts[1], parts[2], parts[0]);
+            return new Entry(ney_parts[1], ney_parts[2], ney_parts[0]);
         }
         return null;
     }
