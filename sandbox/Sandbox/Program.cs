@@ -2,8 +2,10 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+        static void Main(string[] args)
     {
-        Console.WriteLine("Hello Sandbox World!");
+        string ney_message = "Hello World!";
+
+        Console.WriteLine(ney_message);
     }
 }
