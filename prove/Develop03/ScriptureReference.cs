@@ -1,37 +1,37 @@
 public class ScriptureReference
 {
-    private string _book;
-    private int _chapter;
-    private int _startVerse;
-    private int _endVerse;
+    private string ney_book;
+    private int ney_chapter;
+    private int ney_startVerse;
+    private int ney_endVerse;
 
     // Constructor for single verse (e.g., "John 3:16")
-    public ScriptureReference(string book, int chapter, int verse)
+    public ScriptureReference(string ney_book, int ney_chapter, int ney_verse)
     {
-        _book = book;
-        _chapter = chapter;
-        _startVerse = verse;
-        _endVerse = verse;
+        this.ney_book = ney_book;
+        this.ney_chapter = ney_chapter;
+        ney_startVerse = ney_verse;
+        ney_endVerse = ney_verse;
     }
 
     // Constructor for verse range (e.g., "Proverbs 3:5-6")
-    public ScriptureReference(string book, int chapter, int startVerse, int endVerse)
+    public ScriptureReference(string ney_book, int ney_chapter, int ney_startVerse, int ney_endVerse)
     {
-        _book = book;
-        _chapter = chapter;
-        _startVerse = startVerse;
-        _endVerse = endVerse;
+        this.ney_book = ney_book;
+        this.ney_chapter = ney_chapter;
+        this.ney_startVerse = ney_startVerse;
+        this.ney_endVerse = ney_endVerse;
     }
 
     public override string ToString()
     {
-        if (_startVerse == _endVerse)
+        if (ney_startVerse == ney_endVerse)
         {
-            return $"{_book} {_chapter}:{_startVerse}";
+            return $"{ney_book} {ney_chapter}:{ney_startVerse}";
         }
         else
         {
-            return $"{_book} {_chapter}:{_startVerse}-{_endVerse}";
+            return $"{ney_book} {ney_chapter}:{ney_startVerse}-{ney_endVerse}";
         }
     }
 }

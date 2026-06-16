@@ -14,7 +14,7 @@ class Program
         // 4. Scripture variety - Includes scriptures of different lengths and verse ranges
 
         // Create a library of scriptures for the user to choose from
-        Scripture[] scriptures = new Scripture[]
+        Scripture[] ney_scriptures = new Scripture[]
         {
             new Scripture(
                 new ScriptureReference("John", 3, 16),
@@ -34,35 +34,35 @@ class Program
             )
         };
 
-        Random random = new Random();
-        Scripture scripture = scriptures[random.Next(scriptures.Length)];
+        Random ney_random = new Random();
+        Scripture ney_scripture = ney_scriptures[ney_random.Next(ney_scriptures.Length)];
 
         // Main game loop
         while (true)
         {
             Console.Clear();
-            Console.WriteLine($"{scripture.GetReference()}");
+            Console.WriteLine($"{ney_scripture.GetReference()}");
             Console.WriteLine();
-            Console.WriteLine(scripture.GetDisplayText());
+            Console.WriteLine(ney_scripture.GetDisplayText());
             Console.WriteLine();
 
-            if (scripture.IsCompletelyHidden())
+            if (ney_scripture.IsCompletelyHidden())
             {
                 Console.WriteLine("Congratulations! You have successfully hidden all the words. You can continue practicing!");
                 break;
             }
 
             Console.Write("Press Enter to hide more words or type 'quit' to exit: ");
-            string userInput = Console.ReadLine();
+            string ney_userInput = Console.ReadLine();
 
-            if (userInput?.ToLower() == "quit")
+            if (ney_userInput?.ToLower() == "quit")
             {
                 Console.WriteLine("Goodbye!");
                 break;
             }
 
             // Hide 3 random words at a time
-            scripture.HideRandomWords(3);
+            ney_scripture.HideRandomWords(3);
         }
     }
 }

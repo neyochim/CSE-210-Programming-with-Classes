@@ -4,47 +4,61 @@ using System.Linq;
 
 public class Scripture
 {
-    private ScriptureReference _reference;
-    private List<Word> _words;
+    private ScriptureReference ney_reference;
+    private List<Word> ney_words;
 
-    public Scripture(ScriptureReference reference, string text)
+    public Scripture(ScriptureReference ney_reference, string ney_text)
     {
-        _reference = reference;
-        _words = new List<Word>();
+        this.ney_reference = ney_reference;
+        ney_words = new List<Word>();
 
         // Split the text into words and create Word objects
-        string[] wordTexts = text.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-        foreach (string wordText in wordTexts)
+        string[] ney_wordTexts = ney_text.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        foreach (string ney_wordText in ney_wordTexts)
         {
-            _words.Add(new Word(wordText));
+            ney_words.Add(new Word(ney_wordText));
         }
     }
 
-    public void HideRandomWords(int count = 3)
+    public void HideRandomWords(int ney_count = 3)
     {
-        Random random = new Random();
-        for (int i = 0; i < count && i < _words.Count; i++)
+        Random ney_random = new Random();
+
+        // Build a list of indices that are not yet hidden
+        List<int> ney_unhiddenIndices = new List<int>();
+        for (int ney_i = 0; ney_i < ney_words.Count; ney_i++)
         {
-            int randomIndex = random.Next(_words.Count);
-            _words[randomIndex].Hide();
+            if (!ney_words[ney_i].IsHidden())
+            {
+                ney_unhiddenIndices.Add(ney_i);
+            }
+        }
+
+        // Hide up to ney_count distinct unhidden words
+        for (int ney_i = 0; ney_i < ney_count && ney_unhiddenIndices.Count > 0; ney_i++)
+        {
+            int ney_choice = ney_random.Next(ney_unhiddenIndices.Count);
+            int ney_indexToHide = ney_unhiddenIndices[ney_choice];
+            ney_words[ney_indexToHide].Hide();
+            ney_unhiddenIndices.RemoveAt(ney_choice);
         }
     }
 
     public string GetDisplayText()
     {
-        List<string> displayWords = new List<string>();
-        foreach (Word word in _words)
+        List<string> ney_displayWords = new List<string>();
+        foreach (Word ney_word in ney_words)
         {
-            displayWords.Add(word.GetDisplayText());
+            ney_displayWords.Add(ney_word.GetDisplayText());
         }
-        return string.Join(" ", displayWords);
+        return string.Join(" ", ney_displayWords);
     }
 
     public bool IsCompletelyHidden()
     {
-        foreach (Word word in _words)
+        foreach (Word ney_word in ney_words)
         {
-            if (!word.IsHidden())
+            if (!ney_word.IsHidden())
             {
                 return false;
             }
@@ -54,6 +68,6 @@ public class Scripture
 
     public ScriptureReference GetReference()
     {
-        return _reference;
+        return ney_reference;
     }
 }

@@ -1,36 +1,36 @@
 public class Word
 {
-    private string _text;
-    private bool _isHidden;
+    private string ney_text;
+    private bool ney_isHidden;
 
-    public Word(string text)
+    public Word(string ney_text)
     {
-        _text = text;
-        _isHidden = false;
+        this.ney_text = ney_text;
+        ney_isHidden = false;
     }
 
     public void Hide()
     {
-        _isHidden = true;
+        ney_isHidden = true;
     }
 
     public string GetDisplayText()
     {
-        if (_isHidden)
+        if (ney_isHidden)
         {
             // Return underscores matching the length of the word
-            return new string('_', _text.Length);
+            return new string('_', ney_text.Length);
         }
-        return _text;
+        return ney_text;
     }
 
     public bool IsHidden()
     {
-        return _isHidden;
+        return ney_isHidden;
     }
 
     public string GetText()
     {
-        return _text;
+        return ney_text;
     }
 }
